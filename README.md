@@ -38,16 +38,12 @@ Le réseau est divisé en deux zones distinctes, orchestrées par le pare-feu.
 graph TD
     Internet((Internet / WAN))
     Firewall[🔥 Stormshield EVA]
-    Ubuntu[🐧 Ubuntu Server<br/>DNS & DHCP]
-    Win11[💻 Windows 11<br/>Client]
-    Réseaux Interne[Réseau Interne<br/>192.168.56.0/24]
+
+    subgraph LAN [Réseau Interne - 192.168.56.0/24]
+        Ubuntu[🐧 Ubuntu Server<br/>DNS & DHCP]
+        Win11[💻 Windows 11<br/>Client]
+    end
 
     Internet -- Bridge (10.6.113.58) --> Firewall
     Firewall -- LAN (192.168.56.1) --> Ubuntu
     Firewall -- LAN --> Win11
-    Réseau Interne - 192.168.56.0/24
-    
-    subgraph LAN [Réseau Interne - 192.168.56.0/24]
-        Ubuntu
-        Win11
-    end 
