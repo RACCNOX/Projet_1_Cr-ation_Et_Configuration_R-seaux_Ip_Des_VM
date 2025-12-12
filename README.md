@@ -43,7 +43,7 @@ graph TD
     %% --- SOUS-GRAPHE LAN ---
     subgraph ZONE_LAN [Zone Locale]
         direction TB
-        %% Le texte du réseau est une boîte blanche standard, comme les machines
+        %% Le texte du réseau est une boîte grise, pour correspondre à l'ancien style
         NetLabel(<b>Réseau Interne</b><br/>192.168.56.0/24)
         
         Ubuntu[🐧 Ubuntu Server<br/>IP: 192.168.56.10]
@@ -64,10 +64,12 @@ graph TD
     %% Style Bleu pour Internet
     style Internet fill:#29b6f6,stroke:#333,stroke-width:2px,color:white
     
-    %% Style Blanc standard pour les machines ET l'étiquette réseau
+    %% Style Blanc pour les machines
     style Ubuntu fill:#fff,stroke:#333,stroke-width:1px
     style Win11 fill:#fff,stroke:#333,stroke-width:1px
-    style NetLabel fill:#fff,stroke:#333,stroke-width:1px
+    
+    %% Style GRIS pour l'étiquette réseau (Comme demandé)
+    style NetLabel fill:#f4f4f4,stroke:#333,stroke-width:1px
     
     %% Style du fond de zone
-    style ZONE_LAN fill:#f4f4f4,stroke:#666,stroke-width:2px
+    style ZONE_LAN fill:#fff,stroke:#ccc,stroke-width:2px,stroke-dasharray: 5 5
