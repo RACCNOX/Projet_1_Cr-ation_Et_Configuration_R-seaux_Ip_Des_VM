@@ -48,4 +48,4 @@ graph TD
     subgraph LAN [Réseau Interne - 192.168.56.0/24]
         Ubuntu
         Win11
-    end
+    end 
