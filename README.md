@@ -36,14 +36,37 @@ Le réseau est divisé en deux zones distinctes, orchestrées par le pare-feu.
 
 ```mermaid
 graph TD
+    %% --- NOEUDS ---
     Internet((Internet / WAN))
     Firewall[🔥 Stormshield EVA]
 
-    subgraph LAN [Réseau Interne - 192.168.56.0/24]
-        Ubuntu[🐧 Ubuntu Server<br/>DNS & DHCP]
-        Win11[💻 Windows 11<br/>Client]
+    %% --- SOUS-GRAPHE LAN ---
+    subgraph ZONE_LAN [Zone Locale]
+        direction TB
+        %% Le texte du réseau est ici transformé en noeud pour être FORCÉMENT visible
+        NetLabel(<b>Réseau Interne</b><br/>192.168.56.0/24)
+        
+        Ubuntu[🐧 Ubuntu Server<br/>IP: 192.168.56.10]
+        Win11[💻 Windows 11<br/>IP: 192.168.56.20]
     end
 
-    Internet -- Bridge (10.6.113.58) --> Firewall
-    Firewall -- LAN (192.168.56.1) --> Ubuntu
-    Firewall -- LAN --> Win11
+    %% --- CONNEXIONS ---
+    Internet ===|Bridge : 10.6.113.58| Firewall
+    Firewall ---|LAN : 192.168.56.1| NetLabel
+    
+    %% Connexions depuis l'étiquette réseau vers les machines
+    NetLabel --- Ubuntu
+    NetLabel --- Win11
+
+    %% --- STYLES (COULEURS D'ORIGINE) ---
+    %% Style Orange pour le Firewall
+    style Firewall fill:#ff7043,stroke:#333,stroke-width:2px,color:white
+    %% Style Bleu pour Internet
+    style Internet fill:#29b6f6,stroke:#333,stroke-width:2px,color:white
+    %% Style Blanc pour les machines
+    style Ubuntu fill:#fff,stroke:#333,stroke-width:1px
+    style Win11 fill:#fff,stroke:#333,stroke-width:1px
+    
+    %% Style spécial pour l'étiquette réseau (Clair et visible)
+    style NetLabel fill:#e1f5fe,stroke:#0277bd,stroke-width:2px,stroke-dasharray: 5 5
+    style ZONE_LAN fill:#f4f4f4,stroke:#666,stroke-width:2px
