@@ -43,7 +43,7 @@ graph TD
     %% --- SOUS-GRAPHE LAN ---
     subgraph ZONE_LAN [Zone Locale]
         direction TB
-        %% Le texte du réseau est une boîte grise, pour correspondre à l'ancien style
+        %% Étiquette réseau en tant que noeud pour être bien visible
         NetLabel(<b>Réseau Interne</b><br/>192.168.56.0/24)
         
         Ubuntu[🐧 Ubuntu Server<br/>IP: 192.168.56.10]
@@ -54,22 +54,24 @@ graph TD
     Internet ===|Bridge : 10.6.113.58| Firewall
     Firewall ---|LAN : 192.168.56.1| NetLabel
     
-    %% Connexions depuis l'étiquette réseau vers les machines
+    %% Connexions depuis l'étiquette vers les machines
     NetLabel --- Ubuntu
     NetLabel --- Win11
 
-    %% --- STYLES ---
-    %% Style Orange pour le Firewall
+    %% --- STYLES (RETOUR AUX COULEURS) ---
+    
+    %% Firewall : Orange avec texte BLANC
     style Firewall fill:#ff7043,stroke:#333,stroke-width:2px,color:white
-    %% Style Bleu pour Internet
+    
+    %% Internet : Bleu avec texte BLANC
     style Internet fill:#29b6f6,stroke:#333,stroke-width:2px,color:white
     
-    %% Style Blanc pour les machines
+    %% Machines : Fond blanc standard
     style Ubuntu fill:#fff,stroke:#333,stroke-width:1px
     style Win11 fill:#fff,stroke:#333,stroke-width:1px
     
-    %% Style GRIS pour l'étiquette réseau (Comme demandé)
-    style NetLabel fill:#f4f4f4,stroke:#333,stroke-width:1px
+    %% Étiquette réseau : Gris clair pour se différencier
+    style NetLabel fill:#f4f4f4,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5
     
-    %% Style du fond de zone
-    style ZONE_LAN fill:#fff,stroke:#ccc,stroke-width:2px,stroke-dasharray: 5 5
+    %% Fond de la zone LAN
+    style ZONE_LAN fill:#fff,stroke:#ccc,stroke-width:2px
