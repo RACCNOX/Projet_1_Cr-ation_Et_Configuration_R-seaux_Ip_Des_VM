@@ -43,7 +43,7 @@ graph TD
     %% --- SOUS-GRAPHE LAN ---
     subgraph ZONE_LAN [Zone Locale]
         direction TB
-        %% Le texte du réseau est ici transformé en noeud pour être FORCÉMENT visible
+        %% Le texte du réseau est une boîte blanche standard, comme les machines
         NetLabel(<b>Réseau Interne</b><br/>192.168.56.0/24)
         
         Ubuntu[🐧 Ubuntu Server<br/>IP: 192.168.56.10]
@@ -58,15 +58,16 @@ graph TD
     NetLabel --- Ubuntu
     NetLabel --- Win11
 
-    %% --- STYLES (COULEURS D'ORIGINE) ---
+    %% --- STYLES ---
     %% Style Orange pour le Firewall
     style Firewall fill:#ff7043,stroke:#333,stroke-width:2px,color:white
     %% Style Bleu pour Internet
     style Internet fill:#29b6f6,stroke:#333,stroke-width:2px,color:white
-    %% Style Blanc pour les machines
+    
+    %% Style Blanc standard pour les machines ET l'étiquette réseau
     style Ubuntu fill:#fff,stroke:#333,stroke-width:1px
     style Win11 fill:#fff,stroke:#333,stroke-width:1px
+    style NetLabel fill:#fff,stroke:#333,stroke-width:1px
     
-    %% Style spécial pour l'étiquette réseau (Clair et visible)
-    style NetLabel fill:#e1f5fe,stroke:#0277bd,stroke-width:2px,stroke-dasharray: 5 5
+    %% Style du fond de zone
     style ZONE_LAN fill:#f4f4f4,stroke:#666,stroke-width:2px
