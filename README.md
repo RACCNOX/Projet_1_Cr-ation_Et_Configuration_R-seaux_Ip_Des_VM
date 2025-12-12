@@ -40,10 +40,12 @@ graph TD
     Firewall[🔥 Stormshield EVA]
     Ubuntu[🐧 Ubuntu Server<br/>DNS & DHCP]
     Win11[💻 Windows 11<br/>Client]
+    Réseaux Interne[Réseau Interne<br/>192.168.56.0/24]
 
     Internet -- Bridge (10.6.113.58) --> Firewall
     Firewall -- LAN (192.168.56.1) --> Ubuntu
     Firewall -- LAN --> Win11
+    Réseau Interne - 192.168.56.0/24
     
     subgraph LAN [Réseau Interne - 192.168.56.0/24]
         Ubuntu
