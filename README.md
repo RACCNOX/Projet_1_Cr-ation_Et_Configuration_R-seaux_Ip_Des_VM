@@ -36,25 +36,16 @@ Le réseau est divisé en deux zones distinctes, orchestrées par le pare-feu.
 
 ```mermaid
 graph TD
-    %% Noeuds du haut
-    Internet((Internet / WAN<br/>IP: 10.6.113.58))
-    Firewall[🔥 Stormshield EVA<br/>Passerelle]
+    Internet((Internet / WAN))
+    Firewall[🔥 Stormshield EVA]
+    Ubuntu[🐧 Ubuntu Server<br/>DNS & DHCP]
+    Win11[💻 Windows 11<br/>Client]
 
-    %% Zone du bas (LAN)
-    subgraph LAN [Zone Réseau Interne - 192.168.56.0/24]
-        direction TB
-        Ubuntu[🐧 Ubuntu Server<br/>IP: 192.168.56.10]
-        Win11[💻 Windows 11<br/>IP: 192.168.56.20]
+    Internet -- Bridge (10.6.113.58) --> Firewall
+    Firewall -- LAN (192.168.56.1) --> Ubuntu
+    Firewall -- LAN --> Win11
+    
+    subgraph LAN [Réseau Interne - 192.168.56.0/24]
+        Ubuntu
+        Win11
     end
-
-    %% Connexions
-    Internet ===|Bridge| Firewall
-    Firewall ---|LAN: 192.168.56.1| Ubuntu
-    Firewall ---|LAN: 192.168.56.1| Win11
-
-    %% Styles (Couleurs d'origine)
-    style Firewall fill:#ff7043,stroke:#333,stroke-width:2px,color:white
-    style Internet fill:#29b6f6,stroke:#333,stroke-width:2px,color:white
-    style Ubuntu fill:#fff,stroke:#333,stroke-width:1px
-    style Win11 fill:#fff,stroke:#333,stroke-width:1px
-    style LAN fill:#f4f4f4,stroke:#666,stroke-width:2px,stroke-dasharray: 5 5
