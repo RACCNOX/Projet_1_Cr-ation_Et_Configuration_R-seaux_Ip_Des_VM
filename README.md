@@ -61,17 +61,17 @@ graph TD
     %% --- STYLES (RETOUR AUX COULEURS) ---
     
     %% Firewall : Orange avec texte BLANC
-    style Firewall fill:#ff7043,stroke:#333,stroke-width:2px,color:white
+    style Firewall fill:#171717,stroke:#333,stroke-width:2px,color:white
     
     %% Internet : Bleu avec texte BLANC
-    style Internet fill:#29b6f6,stroke:#333,stroke-width:2px,color:white
+    style Internet fill:#171717,stroke:#333,stroke-width:2px,color:white
     
     %% Machines : Fond blanc standard
-    style Ubuntu fill:#424242,stroke:#333,stroke-width:1px
-    style Win11 fill:#424242,stroke:#333,stroke-width:1px
+    style Ubuntu fill:#171717,stroke:#333,stroke-width:1px
+    style Win11 fill:#171717,stroke:#333,stroke-width:1px
     
     %% Étiquette réseau : Gris clair pour se différencier
-    style NetLabel fill:#f4f4f4,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5
+    style NetLabel fill:#171717,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5
     
     %% Fond de la zone LAN
-    style ZONE_LAN fill:#424242,stroke:#ccc,stroke-width:2px
+    style ZONE_LAN fill:#171717,stroke:#ccc,stroke-width:2px
