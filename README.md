@@ -8,11 +8,6 @@
 
 1. [Présentation](#-présentation)
 2. [Architecture](#-architecture)
-3. [Configuration Réseau](#-configuration-réseau)
-4. [Services & Infra](#-services--infra)
-5. [Sécurité & Filtrage](#-sécurité--filtrage)
-6. [Tests & Validation](#-tests--validation)
-7. [Technologies](#-technologies)
 
 ---
 
