@@ -67,11 +67,11 @@ graph TD
     style Internet fill:#29b6f6,stroke:#333,stroke-width:2px,color:white
     
     %% Machines : Fond blanc standard
-    style Ubuntu fill:#fff,stroke:#333,stroke-width:1px
-    style Win11 fill:#fff,stroke:#333,stroke-width:1px
+    style Ubuntu fill:#424242,stroke:#333,stroke-width:1px
+    style Win11 fill:#424242,stroke:#333,stroke-width:1px
     
     %% Étiquette réseau : Gris clair pour se différencier
     style NetLabel fill:#f4f4f4,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5
     
     %% Fond de la zone LAN
-    style ZONE_LAN fill:#fff,stroke:#ccc,stroke-width:2px
+    style ZONE_LAN fill:#424242,stroke:#ccc,stroke-width:2px
